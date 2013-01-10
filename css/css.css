@@ -1,0 +1,358 @@
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,nav,form,fieldset,input,textarea,p,blockquote,th,td{
+margin:0;padding:0;}
+html,body{height:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,th,var{font-style:normal;font-weight:normal;}
+strong{font-weight:bold!important;}
+ol,ul,li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:1.5em;font-weight:normal;}
+abbr,acronym{border:0;}
+/*handcursoronclickableelements*/
+.clickable,label,input[type=button],input[type=submit],button{cursor:pointer;}
+/*Webkitbrowsersadda2pxmarginoutsidethechromeofformelements*/
+button,input,select,textarea{margin:0;}.
+/*makebuttonsplayniceinIE*/
+button{width:auto;overflow:visible;}
+/*scaleimagesinIE7moreattractively*/
+.ie7img{-ms-interpolation-mode:bicubic;}
+/*preventBGimageflickeruponhover*/
+.ie6html{filter:expression(document.execCommand("BackgroundImageCache",false,true));}
+/*welikeoff-blackfortext*/
+body,select,input,textarea{color:#333;}
+body {
+background-attachment: scroll, scroll;
+background-clip: border-box, border-box;
+background-color: #fff;
+background-image: -moz-linear-gradient(-45deg, #fff 22px, #D9ECFF 22px, #D9ECFF 24px, transparent 24px, transparent 67px, #D9ECFF 67px, #D9ECFF 69px, transparent 69px), -moz-linear-gradient(-135deg, #fff 22px, #D9ECFF 22px, #D9ECFF 24px, transparent 24px, transparent 67px, #D9ECFF 67px, #D9ECFF 69px, transparent 69px);
+background-origin: padding-box, padding-box;
+background-position: 0 0%, 0 64px;
+background-repeat: repeat, repeat;
+background-size: 64px 128px;
+}
+
+/***********************Everythingabovethiswascssreset**********************************/
+
+
+/********************** FORM CONTROLS ****************************************/
+.button{
+	padding:0 20px;
+	height:32px;
+	line-height:32px;		
+	border:1px solid #ffffff;
+	background:#003886 url(../images/form2/form_button.gif) repeat-x;
+	color:#fff;
+	cursor:pointer;		
+	text-align:center;		
+	}				
+
+
+
+/**************************************BODYANDMISCELLANEOUS***********************************/
+body{
+font-family:"TrebuchetMS",Area,Helvetica,sans-serif;
+font-size:62.5%;
+}
+.message{
+color:#FF3333;
+font-size:3em;
+border-bottom:4px #006883 solid;
+}
+#header{
+height:150px;
+border-bottom:4px #006883 solid;
+}
+#header span {
+font-size:1.8em;
+color:#ffffff;
+}
+#logo{
+float:left;
+padding:15px;
+}
+#loginWrapper{
+padding-top:10px;
+position:absolute;
+right:0;
+top:0;
+text-align:right;
+}
+#loginWrapper div {
+display:block;
+}
+#viewLogin {
+padding-right:10px;
+color:#ffffff;
+cursor:pointer;
+}
+.uName {
+padding-top:10px;
+padding-right:15px;
+}
+#logout {
+border-left:1px solid #ffffff;
+padding-left:15px;
+margin-right:20px;
+}
+#loginError span {
+font-size:1.5em;
+color:#FF3333 !important;
+}
+
+#form2{
+	margin:1em 0;
+	color:#fff;
+	width:320px; /* customize width, this form have fluid layout */
+	padding-right:25px;
+	text-align:left !important;
+	}
+#form2 h3{
+	margin:0;
+	background:#000000 url(../images/form2/form_heading.gif) repeat-x;		
+	color:#fff;
+	font-size:20px;
+	border:1px solid #000000;
+	border-bottom:none;
+	}		
+#form2 h3 span{
+	display:block;
+	padding:10px 20px;
+	background:url(../images/form2/form_ico.gif) no-repeat 93% 50%;			
+	}				
+#form2 fieldset{
+	margin:0;
+	padding:0;
+	border:none;	
+	border-top:3px solid #000;
+	background:#000 url(../images/form2/form_top.gif) repeat-x;		
+	padding-bottom:1em;
+	}		
+
+.addEvent p{
+color:#fff;
+}
+
+#form2 legend{display:none;}	
+#form2 p{margin:.5em 20px;}	
+#form2 label{display:block;}	
+#form2 input, #form2 textarea{		
+	width:272px;
+	border:1px solid #111;
+	background:#282828 url(../images/form2/form_input.gif) repeat-x;
+	padding:5px 3px;
+	color:#fff;
+	}		
+input, textarea {		
+	border:1px solid #111;
+	background:#282828 url(../images/form2/form_input.gif) repeat-x;
+	padding:5px 3px;
+	color:#fff;
+	}		
+
+#form2 textarea{
+	height:125px;
+	overflow:auto;
+	}					
+#form2 p.submit{
+	text-align:right;
+	}	
+#form2 button{
+	padding:0 20px;
+	height:32px;
+	line-height:32px;		
+	border:1px solid #ffffff;
+	background:#003886 url(../images/form2/form_button.gif) repeat-x;
+	color:#fff;
+	cursor:pointer;		
+	text-align:center;		
+	}				
+
+#sliderWrap {
+    position:absolute;
+    left:50%;
+    margin-left:-400px;
+}
+/************************** HOME PAGE **************************************/
+.welcome {
+text-align:center;
+}
+/*************************** HEADINGS AND TITLES **************************************/
+.heading {
+font-size:30px;
+line-height:1;
+margin-bottom:25px;
+margin-top:10px;
+}
+/*************************** GLOBALS *******************************/
+.cB {
+background-attachment: scroll, scroll, scroll, scroll, scroll, scroll;
+background-clip: border-box, border-box, border-box, border-box, border-box, border-box;
+background-color: #131313;
+background-image: -moz-linear-gradient(63deg, #151515 5px, transparent 5px), -moz-linear-gradient(-117deg, #151515 5px, transparent 5px), -moz-linear-gradient(63deg, #222222 5px, transparent 5px), -moz-linear-gradient(-117deg, #222222 5px, transparent 5px), -moz-linear-gradient(0deg, #1B1B1B 10px, transparent 10px), -moz-linear-gradient(#1D1D1D 25%, #1A1A1A 25%, #1A1A1A 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
+background-position: 0 5px, 10px 0px, 0 10px, 10px 5px, 0 0%, 0 0;
+background-repeat: repeat, repeat, repeat, repeat, repeat, repeat;
+background-size: 20px 20px;
+}
+
+.rB {
+-moz-border-radius:10px 10px 10px 0px;
+-webkit-border-radius: 10px 10px 10px 0px;
+border-radius:10px 10px 10px 0px;                                                                                        
+-khtml-border-radius:10px 10px 10px 0px; 
+}
+
+.bB {
+border-bottom:4px #006883 solid;
+}
+
+/**************************** STUDENTPROFILE BEGIN *************************************/
+#studentProfile {
+position:relative;
+left:20%;
+width:60%;
+font-size:1.5em;
+}
+.seCon {
+padding:10px 10px 5px 10px;
+color:#fff !important;
+}
+.suEvent {
+padding-bottom:5px;
+margin-bottom:15px;
+border-bottom:2px #003886 dashed;
+}
+
+
+/************************** ORGANIZATION PAGE ****************************************/
+#oAddEvent {
+width:95%;
+border-top:none;
+padding:0 20px 0 10px;
+}
+#oAddEvent textarea {
+width:100%;
+}
+#oAddEvent fieldset p {
+font-size:1.5em;
+}
+#oAddEvent input {
+width:100%;
+display:inline-block;
+}
+
+/************************** event ********************************************/
+.statusCon div{
+display:inline-block;
+}
+.statusCon span {
+margin-right:5px;
+margin-left:5px;
+font-size:1.3em;
+}
+.statusCon {
+text-align:center;
+margin-bottom:25px;
+}
+.eventCon {
+margin-top:25px;
+}
+.event {
+color:#fff;
+margin-left:2.5%;
+margin-right:2.5%;
+width:95%;
+border:2px #003886 solid;
+padding-bottom:10px;
+margin-bottom:20px;
+padding-top:3px;
+-moz-border-radius:10px 10px 10px 0px;
+-webkit-border-radius: 10px 10px 10px 0px;
+border-radius:10px 10px 10px 0px;                                                                                        
+-khtml-border-radius:10px 10px 10px 0px; 
+
+
+}
+.event div {
+display:inline-block;
+}
+.eApp {
+width:15%;
+text-align:center;
+}
+.eApp p {
+line-height:1;
+}
+.eStatus {
+font-size:1.2em;
+margin-bottom:10px;
+}
+.totalVol {
+font-size:4em !important;
+}
+.volInfo {
+font-size:1.6em;
+margin-bottom:7px;
+}
+.status {
+width:20px;
+height:20px;
+}
+.appColor {
+background-color:green;
+}
+.wAppColor {
+background-color:#006883;
+}
+.unAppColor {
+background-color:red;
+}
+.eLeft {
+width:61%;
+}
+.eLeft p {
+line-height:1;
+}
+.eRight {
+width:20%;
+text-align:center;
+}
+.eRight p {
+line-height:1;
+}
+.eName {
+font-size:1.8em;
+}
+.oName {
+font-size:1.2em;
+}
+.eDesc {
+color:#000;
+font-size:1.2em;
+background-color:#fff;
+padding:3px 0 3px 3px;
+margin-top:5px;
+margin-bottom:5px;
+-moz-border-radius:10px 10px 10px 0px;
+-webkit-border-radius: 10px 10px 10px 0px;
+border-radius:10px 10px 10px 0px;                                                                                        
+-khtml-border-radius:10px 10px 10px 0px; 
+
+}
+.weekDay {
+font-size:2em;
+}
+.dayDate {
+font-size:3em;
+}
+.month {
+font-size:2em;
+}
+.year {
+font-size:1.9em;
+}
+.event p {
+
+}
