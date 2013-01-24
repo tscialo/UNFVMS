@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-$('#login').live("click",function (){
+$('#login').on("click",function (){
     if($('#login').attr('v')==0){
         $('#loginDiv').show();
         $('#login').text('(Close)');
@@ -14,7 +14,7 @@ $('#login').live("click",function (){
     }
 })
 
-$('#signup').live("click",function (){
+$('#signup').on("click",function (){
     $('#signupDiv').toggle();
     if($('#signup').attr('v')==0){
         $('#signup').text('(Close)');
@@ -25,7 +25,7 @@ $('#signup').live("click",function (){
         $('#signup').attr('v',0);
     }
 })
-$('#oSignup').live("click",function (){
+$('#oSignup').on("click",function (){
     $('#oSignupDiv').toggle();
     if($('#oSignup').attr('v')==0){
         $('#oSignup').text('(Close)');
@@ -38,11 +38,11 @@ $('#oSignup').live("click",function (){
 })
 
 
-$('#changePassword').live("click",function (){
+$('#changePassword').on("click",function (){
     $('#changePasswordDiv').toggle();
 })
 
-$('#loginButton').live("click enter", function(event){
+$('#loginButton').on("click enter", function(event){
     event.preventDefault();
     if($('#email').val()){
         if($('#password').val()){
