@@ -3,48 +3,49 @@
 class pageHeader{
 
     public function pageHead($ctrl){
-    echo '<div id="header" class="cB">
-        <div id="logo"><a href="index.php"><img src="photos/UNF_Logo.gif"/></a></div>
-        <div id="motto"><img src="photos/volunteer_center_logo.gif"></div>
-        <div id="loginWrapper">';
+    echo '<div id="header" class="container cB bB">
+            <div class="row">
+                <div class="sixcol">
+                    <div id="logo"><a href="index.php"><img src="photos/UNF_Logo.gif"/></a></div>
+                    <div id="motto"><a href="index.php"><img src="photos/volunteer_center_logo.gif"></a></div>
+                </div>
+                <div class="sixcol last">
+
+                    <div id="loginWrapper">';
 
 
-        if(isset($_SESSION['studentUser'])){
-            echo '<a href="studentProfile.php"><span class="uName">'.$ctrl->sCtrl->student->sEmail.'</span></a>'; 
-            echo '<a href="index.php?logout"><span id="logout">logout</span></a>';
-        }
-        else if(isset($_SESSION['orgUser'])){
-            echo '<a href="organizationProfile.php"><span class="uName">'.$ctrl->oCtrl->org->email.'</span></a>';
-            echo '<a href="index.php?logout"><span id="logout">logout</span></a>';
-        }
-        else if(isset($_SESSION['admin'])){
-            echo '<a href="organizationProfile.php"><span class="uName">'.$ctrl->adminCtrl->admin->sEmail.'</span></a>';
-            echo '<a href="index.php?logout"><span id="logout">logout</span></a>';
-        }
-        else{
+                    if(isset($_SESSION['studentUser'])){
+                        echo '<a href="studentProfile.php"><span class="uName">'.$ctrl->sCtrl->student->sEmail.'</span></a>'; 
+                        echo '<a href="index.php?logout"><span id="logout">logout</span></a>';
+                    }
+                    else if(isset($_SESSION['orgUser'])){
+                        echo '<a href="organizationProfile.php"><span class="uName">'.$ctrl->oCtrl->org->email.'</span></a>';
+                        echo '<a href="index.php?logout"><span id="logout">logout</span></a>';
+                    }
+                    else if(isset($_SESSION['admin'])){
+                        echo '<a href="organizationProfile.php"><span class="uName">'.$ctrl->adminCtrl->admin->sEmail.'</span></a>';
+                        echo '<a href="index.php?logout"><span id="logout">logout</span></a>';
+                    }
+                    else{
 
-            echo '<div id="viewLogin" >
-                <span id="login" v=0>Login</span>
-                <span> | </span>
-                <span id="signup" v=0>Sign up</span>
-                <span> | </span>
-                <span id="oSignup" v=0>Organization Sign up</span>
-                </div>';
+                        echo '<div id="viewLogin" >
+                                    <span id="login" v=0>Login</span>
+                                    <span> | </span>
+                                    <span id="signup" v=0>Sign up</span>
+                                    <span> | </span>
+                                    <span id="oSignup" v=0>Organization Sign up</span>
+                                </div>';
 
-        $this->loginForm();
-        $this->signupForm();
-        $this->oSignupForm();
+                        $this->loginForm();
+                        $this->signupForm();
+                        $this->oSignupForm();
 
+                        if(!empty($ctrl->error)){
+                            echo '</br><div id="loginError"><span>'.$ctrl->error.'</span></div>';
+                        }//end if
 
-        if(!empty($ctrl->error)){
-            echo '</br><div id="loginError"><span>'.$ctrl->error.'</span></div>';
-        }
-
-        echo '</div>';
-
-        }//end else	
-
-        echo '</div></div>';
+                        }//end else	
+                    echo '</div></div></div></div>';
  
     }//end pageHead
 

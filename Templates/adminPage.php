@@ -1,7 +1,7 @@
 <?php
 class adminPage {
 
-    public function unApprovedEvents($ctrl,$result) {
+    public function unApprovedEvents($result) {
 
         if($result->num_rows==0){
             echo 'There are no events awaiting approval';

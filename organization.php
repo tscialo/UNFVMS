@@ -9,35 +9,31 @@ header('Location: index.php');
 
 
 require_once('control.php');
-require_once('Templates/header.php');
+require_once('Templates/page.php');
 require_once('Templates/orgPage.php');
 
     $ctrl = new control;
-    $ctrl->metaHeader('Organization Admin');
     $ctrl->process();
 
+    $markup = new page;
+    $markup->metaHeader('Organization Admin');
+    $markup->head($ctrl);
 
-    $header = new pageHeader;
+
     $page = new orgPage;
 
-    $header->pageHead($ctrl);
-
     $result= $ctrl->oCtrl->orgData->getOrgEvents($ctrl);
-
-    echo '<div class="container">
-            <div class="row">
-                <div class="fourcol">';
-                $page->addEvent();
-                echo '</div>
-                <div class="sixcol last eventCon">';
-                $page->orgEvents($ctrl,$result);
-
-    echo '</div>
-            </div>
-        </div>
-</body>
-</html>';
-
-
-
 ?>
+    <div class="container">
+        <div class="row">
+            <div class="fourcol">';
+                <?$page->addEvent();?>
+            </div>
+            <div class="sixcol last eventCon">';
+                <?$page->orgEvents($ctrl,$result);?>
+            </div>
+
+        </div>
+    </div>
+
+<? $markup->footer();?>

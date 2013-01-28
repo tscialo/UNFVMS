@@ -23,14 +23,7 @@ button{width:auto;overflow:visible;}
 /*welikeoff-blackfortext*/
 body,select,input,textarea{color:#333;}
 body {
-background-attachment: scroll, scroll;
-background-clip: border-box, border-box;
-background-color: #fff;
-background-image: -moz-linear-gradient(-45deg, #fff 22px, #D9ECFF 22px, #D9ECFF 24px, transparent 24px, transparent 67px, #D9ECFF 67px, #D9ECFF 69px, transparent 69px), -moz-linear-gradient(-135deg, #fff 22px, #D9ECFF 22px, #D9ECFF 24px, transparent 24px, transparent 67px, #D9ECFF 67px, #D9ECFF 69px, transparent 69px);
-background-origin: padding-box, padding-box;
-background-position: 0 0%, 0 64px;
-background-repeat: repeat, repeat;
-background-size: 64px 128px;
+background: none repeat scroll 0 0 #C3CBCE;
 }
 
 /***********************Everythingabovethiswascssreset**********************************/
@@ -62,15 +55,17 @@ border-bottom:4px #006883 solid;
 }
 #header{
 height:150px;
-border-bottom:4px #006883 solid;
 }
 #header span {
 font-size:1.8em;
 color:#ffffff;
 }
 #logo{
-float:left;
 padding:15px;
+display:inline-block;
+}
+#motto {
+display:inline-block;
 }
 #loginWrapper{
 padding-top:10px;
@@ -187,14 +182,7 @@ margin-top:10px;
 }
 /*************************** GLOBALS *******************************/
 .cB {
-background-attachment: scroll, scroll, scroll, scroll, scroll, scroll;
-background-clip: border-box, border-box, border-box, border-box, border-box, border-box;
-background-color: #131313;
-background-image: -moz-linear-gradient(63deg, #151515 5px, transparent 5px), -moz-linear-gradient(-117deg, #151515 5px, transparent 5px), -moz-linear-gradient(63deg, #222222 5px, transparent 5px), -moz-linear-gradient(-117deg, #222222 5px, transparent 5px), -moz-linear-gradient(0deg, #1B1B1B 10px, transparent 10px), -moz-linear-gradient(#1D1D1D 25%, #1A1A1A 25%, #1A1A1A 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-background-origin: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box;
-background-position: 0 5px, 10px 0px, 0 10px, 10px 5px, 0 0%, 0 0;
-background-repeat: repeat, repeat, repeat, repeat, repeat, repeat;
-background-size: 20px 20px;
+background: url("../Photos/bg_header.gif") repeat-x scroll left top #003886;
 }
 
 .rB {
@@ -205,7 +193,7 @@ border-radius:10px 10px 10px 0px;
 }
 
 .bB {
-border-bottom:4px #006883 solid;
+border-bottom:4px #8b8b8b solid;
 }
 
 /**************************** STUDENTPROFILE BEGIN *************************************/

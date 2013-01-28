@@ -9,41 +9,33 @@ header('Location: index.php');
 
 
 require_once('control.php');
-require_once('Templates/header.php');
+require_once('Templates/page.php');
 require_once('Templates/adminPage.php');
 
     $ctrl = new control;
-    $header = new pageHeader;
-    $page = new adminPage;
-
-    $ctrl->metaHeader('VMS Admin');
-
     $ctrl->process();
 
-    $header->pageHead($ctrl);
+    $markup = new page;
+    $markup->metaHeader('VMS Admin');
+    $markup->head($ctrl);
+
+    $page = new adminPage;
     
     $unApprovedEvents = $ctrl->adminCtrl->adminData->getUnapprovedEvents($ctrl);
     $allEvents = $ctrl->adminCtrl->adminData->getAllEvents($ctrl);
 
-
-
-    echo '<div class="container">
-            <div class="row">
-                <div class="onecol">
-                </div>
-                <div class="ninecol last">
+?>
+    <div class="container">
+        <div class="row">
+            <div class="onecol">
+            </div>
+            <div class="ninecol last">
                 <p class="heading bB">Events Awaiting Approval</p>';
-                $page->unApprovedEvents($ctrl,$unApprovedEvents);
-                echo '<p class="heading bB">All Events</p>';
-                $page->allEvents($allEvents);
-                echo '</div>
+                <? $page->unApprovedEvents($unApprovedEvents);?>
+                <p class="heading bB">All Events</p>
+                <? $page->allEvents($allEvents);?>
             </div>
         </div>
-</body>
-</html>';
+    </div>
 
-
-
-
-
-?>
+<? $markup->footer(); ?>
