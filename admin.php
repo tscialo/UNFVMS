@@ -15,10 +15,14 @@ require_once('Templates/adminPage.php');
     $ctrl = new control;
     $ctrl->process();
 
+    //page is our standard view
     $markup = new page;
+    //print the metaHeader for our scripts and css
     $markup->metaHeader('VMS Admin');
+    //print the header of the page (this is generic to all pages)
     $markup->head($ctrl);
 
+    //adminView 
     $page = new adminPage;
     
     $unApprovedEvents = $ctrl->adminCtrl->adminData->getUnapprovedEvents($ctrl);
@@ -31,9 +35,9 @@ require_once('Templates/adminPage.php');
             </div>
             <div class="ninecol last">
                 <p class="heading bB">Events Awaiting Approval</p>';
-                <? $page->unApprovedEvents($unApprovedEvents);?>
+                <?  $page->unApprovedEvents($ctrl,$unApprovedEvents);?>
                 <p class="heading bB">All Events</p>
-                <? $page->allEvents($allEvents);?>
+                <? $page->allEvents($ctrl,$allEvents);?>
             </div>
         </div>
     </div>

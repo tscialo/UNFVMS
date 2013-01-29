@@ -10,7 +10,6 @@ if(!isset($_SESSION['studentUser'])){
 
 
 require_once('control.php');
-require_once('Templates/header.php');
 require_once('Templates/page.php');
 require_once('Templates/studentPage.php');
 
@@ -42,7 +41,8 @@ require_once('Templates/studentPage.php');
             echo '</div>
                 <div class="eightcol last">
                 <p class="heading bB">Upcoming Events</p>';
-                $studentMarkup->printEvents($events);
+                    $ctrl->calendar->printCalendar($events);
+                //$studentMarkup->printEvents($events);
                 echo '</div>
             </div>
         </div>

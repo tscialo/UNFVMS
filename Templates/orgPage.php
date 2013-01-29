@@ -94,30 +94,22 @@ public function orgEvents($ctrl,$result){
                 $class="wAppColor";
             }//end else
 
-            echo '
-                <div class="event cB">
-                    <div class="eApp">
-                    <p class="eStatus">Status</p>
-                    <div class="status '.$class.'"></div>
-                    <p class="totalVol">'.$totalVol.'</p>
-                    <p>Volunteers Currently signed up</p>
-                    </div>
+            $left ='<p class="eStatus">Status</p>
+            <div class="status '.$class.'"></div>
+            <p class="totalVol">'.$totalVol.'</p>
+            <p>Volunteers Currently signed up</p>';
 
-                    <div class="eLeft">
-                    <p class="eName">'.$eName.'</p>
-                    <p class="oName">'.$oName.'</p>
-                    <p class="eDesc">'.$desc.'</p>
-                    </div>
+            $middle='<p class="eName">'.$eName.'</p>
+            <p class="oName">'.$oName.'</p>
+            <p class="eDesc">'.$desc.'</p>';
 
-                    <div class="eRight">
-                    <p class="weekDay">'.$weekDay.'</p>
-                    <p class="dayDate">'.$dayDate.'</p>
-                    <p class="month">'.$month.'</p>
-                    <p class="year">'.$year.'</p>
-                    <p>'.$sTime.' - '.$eTime.'</p>
+            $right ='<p class="weekDay">'.$weekDay.'</p>
+            <p class="dayDate">'.$dayDate.'</p>
+            <p class="month">'.$month.'</p>
+            <p class="year">'.$year.'</p>
+            <p>'.$sTime.' - '.$eTime.'</p>';
 
-                    </div>
-                   </div>';
+            $ctrl->calendar->calendarMarkup($left,$middle,$right);
 
         }//end while
 

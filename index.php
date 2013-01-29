@@ -31,12 +31,12 @@ require_once('Templates/page.php');
             <div class="row">
                 <div class="fourcol">
                     <p class="heading bB">Spotlight Event</p>
-                    <? $ctrl->spotlightEvent(); ?>
+                    <? $ctrl->calendar->spotlightEvent($ctrl); ?>
                 </div>
 
                 <div class="eightcol last">
                     <p class="heading bB">Upcoming events</p>
-                    <? $ctrl->publicEvents(); ?>
+                    <? $ctrl->calendar->printCalendar($ctrl->calendar->publicCalendarData($ctrl)); ?>
                 </div>
             </div>
         </div>

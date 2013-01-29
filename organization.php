@@ -29,7 +29,7 @@ require_once('Templates/orgPage.php');
             <div class="fourcol">';
                 <?$page->addEvent();?>
             </div>
-            <div class="sixcol last eventCon">';
+            <div class="eightcol last eventCon">';
                 <?$page->orgEvents($ctrl,$result);?>
             </div>
 

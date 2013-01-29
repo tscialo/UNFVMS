@@ -1,7 +1,7 @@
 <?php
 class adminPage {
 
-    public function unApprovedEvents($result) {
+    public function unApprovedEvents($ctrl,$result) {
 
         if($result->num_rows==0){
             echo 'There are no events awaiting approval';
@@ -29,31 +29,24 @@ class adminPage {
             $month = $row['month'];
             $year = $row['year'];
 
-            echo '
-                <div class="event cB">
-                <div class="eApp">
-                <p>Approve</p>
-                <input type="checkbox" name="app[]" value="'.$eID.'">
-                <p>Deny</p>
-                <input type="checkbox" name="deny[]" value="'.$eID.'">
+            $left = '<p>Approve</p>
+                    <input type="checkbox" name="app[]" value="'.$eID.'">
+                    <p>Deny</p>
+                    <input type="checkbox" name="deny[]" value="'.$eID.'">';
 
-               </div> 
 
-                    <div class="eLeft">
-                    <p class="eName">'.$eName.'</p>
+            $middle = '<p class="eName">'.$eName.'</p>
                     <p class="oName">'.$oName.'</p>
-                    <p class="eDesc">'.$desc.'</p>
-                    </div>
+                    <p class="eDesc">'.$desc.'</p>';
 
-                    <div class="eRight">
-                    <p class="weekDay">'.$weekDay.'</p>
+            $right ='<p class="weekDay">'.$weekDay.'</p>
                     <p class="dayDate">'.$dayDate.'</p>
                     <p class="month">'.$month.'</p>
                     <p class="year">'.$year.'</p>
-                    <p>'.$sTime.' - '.$eTime.'</p>
+                    <p>'.$sTime.' - '.$eTime.'</p>';
 
-                    </div>
-                   </div>';
+            $ctrl->calendar->calendarMarkup($left,$middle,$right);
+
 
         }//end while
         
@@ -62,7 +55,7 @@ class adminPage {
 
     }//end unApprovedEvents
 
-    public function allEvents($result){
+    public function allEvents($ctrl,$result){
         if($result->num_rows==0){
             echo 'There hasn\'t been any events added to the VMS yet';
             return;
@@ -109,31 +102,23 @@ class adminPage {
             }//end else
 
 
-            echo '
-                <div class="event cB">
-                <div class="eApp">
-                    <p class="eStatus">Status</p>
+            $left ='<p class="eStatus">Status</p>
                     <div class="status '.$class.'"></div>
                     <p class="totalVol">'.$totalVol.'</p>
-                    <p>Volunteers Currently signed up</p>
+                    <p>Volunteers Currently signed up</p> ';
 
-               </div> 
-
-                    <div class="eLeft">
-                    <p class="eName">'.$eName.'</p>
+            $middle ='<p class="eName">'.$eName.'</p>
                     <p class="oName">'.$oName.'</p>
-                    <p class="eDesc">'.$desc.'</p>
-                    </div>
+                    <p class="eDesc">'.$desc.'</p>';
 
-                    <div class="eRight">
-                    <p class="weekDay">'.$weekDay.'</p>
+            $right ='<p class="weekDay">'.$weekDay.'</p>
                     <p class="dayDate">'.$dayDate.'</p>
                     <p class="month">'.$month.'</p>
                     <p class="year">'.$year.'</p>
-                    <p>'.$sTime.' - '.$eTime.'</p>
+                    <p>'.$sTime.' - '.$eTime.'</p>';
 
-                    </div>
-                   </div>';
+            $ctrl->calendar->calendarMarkup($left,$middle,$right);
+
 
         }//end while
 

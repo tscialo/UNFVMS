@@ -232,6 +232,19 @@ display:inline-block;
 }
 
 /************************** event ********************************************/
+.calEvent {
+color:#ffffff;
+margin-bottom:15px;
+padding-top:5px;
+padding-bottom:5px;
+}
+.eventLeft {
+text-align:center;
+}
+.eventRight {
+text-align:center;
+}
+
 .statusCon div{
 display:inline-block;
 }
@@ -261,7 +274,6 @@ padding-top:3px;
 border-radius:10px 10px 10px 0px;                                                                                        
 -khtml-border-radius:10px 10px 10px 0px; 
 
-
 }
 .event div {
 display:inline-block;
@@ -285,6 +297,8 @@ font-size:1.6em;
 margin-bottom:7px;
 }
 .status {
+margin-left:auto;
+margin-right:auto;
 width:20px;
 height:20px;
 }
@@ -330,17 +344,14 @@ border-radius:10px 10px 10px 0px;
 
 }
 .weekDay {
-font-size:2em;
+font-size:24px;
 }
 .dayDate {
-font-size:3em;
+font-size:32px;
 }
 .month {
-font-size:2em;
+font-size:16px;
 }
 .year {
-font-size:1.9em;
-}
-.event p {
-
+font-size:12px;
 }
