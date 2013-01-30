@@ -110,11 +110,24 @@ $('.seSignUp').on('click',function(event){
 
     }
 })
-
-$('#accordion').easyAccordion({
-    autoStart: true,
-    slideInterval: 3000,
-    slideNum: false
+//ORGANIZATION EVENTS HANDLING
+$('#addEventTitle').on('click',function(){
+    var $div = $(this).next()
+    if($div.css('display')=='none'){
+        $(this).children('span').children('img').attr("src","photos/icons//minus.png");
+        $div.slideDown(500);
+    }
+    else {
+        $div.fadeOut(500);
+        $(this).children('span').children('img').attr("src","photos/icons/plus.png");
+    }
 })
 
+$(function() {
+    $("#datepicker").datepicker({ dateFormat:'yy-mm-dd'});
+})
+$('#sTime').ptTimeSelect({});
+$('#eTime').ptTimeSelect({});
 });
+
+

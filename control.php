@@ -6,6 +6,7 @@ class control{
 
 public $db;
 public $calendar;
+public $eventData;
 public $sCtrl;
 public $oCtrl;
 public $adminCtrl;
@@ -49,6 +50,18 @@ public $message;
     public function clean($inc){
         return $this->db->mysqli->real_escape_string(stripslashes($inc));
     }
+
+    public function buildTime($cTime) {
+        $curTime=time();$timeSince=round($curTime-$cTime);$now;
+        if(!($timeSince>60)){ $now=$timeSince; $now.=($now==1)?' second ago':' seconds ago'; return $now; }//endif
+        elseif(!($timeSince>3600)){ $now=round(($timeSince/60)); $now.=($now==1)?' minute ago':' minutes ago'; return $now; }//end elseif
+        elseif(!($timeSince>86400)){ $now=round((($timeSince/60)/60)); $now.=($now==1)?' hour ago':' hours ago'; return $now; }//end elseif
+        elseif(!($timeSince>2592000)){ $now=round((($timeSince/60)/60)/24); $now.=($now==1)?' day ago':' days ago'; return $now; }//end elseif
+        elseif(!($timeSince>31104000)){ $now=round(((($timeSince/60)/60)/24)/30); $now.=($now==1)?' month ago':' months ago'; return $now; }//end elseif
+        else{ $now=round((((($timeSince/60)/60)/24)/30)/12); $now.=($now==1)?' year ago':'years ago'; return $now; }//end
+    }//end buildTime()
+
+
 
 }//end class
 

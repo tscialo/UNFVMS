@@ -23,7 +23,7 @@ button{width:auto;overflow:visible;}
 /*welikeoff-blackfortext*/
 body,select,input,textarea{color:#333;}
 body {
-background: none repeat scroll 0 0 #C3CBCE;
+background: none repeat scroll 0 0 #ffffff;
 }
 
 /***********************Everythingabovethiswascssreset**********************************/
@@ -127,6 +127,18 @@ color:#FF3333 !important;
 
 .addEvent p{
 color:#fff;
+}
+#addEvent {
+display:none;
+}
+#addEventTitle {
+cursor:pointer;
+}
+#addEventTitle span {
+    float:right;
+}
+#addEventTitle span img {
+width:16px;
 }
 
 #form2 legend{display:none;}	
@@ -244,6 +256,8 @@ text-align:center;
 .eventRight {
 text-align:center;
 }
+.eventRight p {
+}
 
 .statusCon div{
 display:inline-block;
@@ -258,7 +272,6 @@ text-align:center;
 margin-bottom:25px;
 }
 .eventCon {
-margin-top:25px;
 }
 .event {
 color:#fff;
@@ -290,6 +303,7 @@ font-size:1.2em;
 margin-bottom:10px;
 }
 .totalVol {
+line-height:1 !important;
 font-size:4em !important;
 }
 .volInfo {
@@ -343,15 +357,100 @@ border-radius:10px 10px 10px 0px;
 -khtml-border-radius:10px 10px 10px 0px; 
 
 }
+
+
+.dateIcon {
+text-align:center;
+width: 100%; height: auto;
+background: #fcfcfc; 
+background: linear-gradient(top, #fcfcfc 0%,#dad8d8 100%); 
+background: -moz-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%); 
+background: -webkit-linear-gradient(top, #fcfcfc 0%,#dad8d8 100%); 
+border: 1px solid #d2d2d2;
+border-radius: 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+-moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+-webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+}
+
+.dateIcon p.dDay {
+font-family: Helvetica, sans-serif;
+font-size: 64px; text-align: center; color: #9e9e9e; 
+line-height:1;
+}
+.dateIcon p.dTime {
+font-size: 16px;
+color: #9e9e9e; 
+}
+.dateIcon p.dBreak {
+font-size: 20px;
+line-height:.5;
+color: #9e9e9e; 
+}
+
+.dateIcon p.dMonth {
+
+background: #4c4c4c; /* Old browsers */
+background: -moz-linear-gradient(top, #4c4c4c 0%, #000000 0%, #474747 1%, #595959 1%, #666666 8%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(0%,#000000), color-stop(1%,#474747), color-stop(1%,#595959), color-stop(8%,#666666), color-stop(60%,#111111), color-stop(76%,#2b2b2b), color-stop(91%,#1c1c1c), color-stop(100%,#131313)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #4c4c4c 0%,#000000 0%,#474747 1%,#595959 1%,#666666 8%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #4c4c4c 0%,#000000 0%,#474747 1%,#595959 1%,#666666 8%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #4c4c4c 0%,#000000 0%,#474747 1%,#595959 1%,#666666 8%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* IE10+ */
+background: linear-gradient(to bottom, #4c4c4c 0%,#000000 0%,#474747 1%,#595959 1%,#666666 8%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
+/*background: #d10000; 
+background: linear-gradient(top, #4c4c4c 0%, #595959 12%);
+background: -moz-linear-gradient(top, #4c4c4c 0%, #595959 12%);
+background: -webkit-linear-gradient(top, #d10000 0%, #7a0909 100%);
+*/
+font-size: 28.8px; font-weight: bold; color: #fff; text-transform: uppercase;     
+display: block;
+border-top: 3px solid #333;
+border-radius: 0 0 10px 10px;
+-moz-border-radius: 0 0 10px 10px;
+-webkit-border-radius: 0 0 10px 10px;
+padding: 6px 0 6px 0;
+}
+
+
+
+
+
+
+
 .weekDay {
 font-size:24px;
+line-height:24px;
 }
 .dayDate {
 font-size:32px;
+line-height:32px;
 }
 .month {
 font-size:16px;
 }
 .year {
 font-size:12px;
+}
+
+
+
+/*****************BEGIN SINGLE EVENT PAGE CSS****/
+#sEventVol {
+padding-top:15px;
+padding-bottom:15px;
+text-align:center;
+font-size:32px;
+line-height:32px;
+}
+#sOrgImg {
+text-align:center;
+}
+#sOrgImg img {
+width:150px;
+}
+#sEventImg {
+width:250px;
 }

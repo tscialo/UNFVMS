@@ -33,6 +33,9 @@ public $sData;
     }//end processPostData
 
     private function processGetData($ctrl){
+        if(isset($_GET['sEventID'])){
+
+        }//end if
 
     }//end processGetData
 

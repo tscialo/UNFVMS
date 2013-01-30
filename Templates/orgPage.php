@@ -3,8 +3,8 @@ class orgPage {
 
 public function addEvent(){
     echo '<div id="oAddEvent">
-        <p class="heading">Add an Event</p>
-<form action="organization.php" method="post">	
+        <div id="addEventTitle" class="heading bB">Add an Event<span><img src="photos/icons/plus.png"/></span></div>
+<form id="addEvent" action="organization.php" method="post">	
             <fieldset>
                     <p>
             		<label for="Title">Event Title</label>
@@ -16,7 +16,7 @@ public function addEvent(){
             	</p>
                     <p>
             		<label for="date">Date</label>
-            		<input type="time" name="date" id="date" size="5" />
+            		<input type="text" name="date" id="datepicker" size="5" />
             	</p>
 
                     <p>
@@ -65,7 +65,6 @@ public function orgEvents($ctrl,$result){
             $eID = $row['eID'];
             $oID = $row['oID'];
             $ocID = $row['o_cID'];
-            $date = $row['eDate'];
             $location = $row['eLocation'];
             $sTime = $row['eStartTime'];
             $eTime = $row['eEndTime'];
@@ -81,7 +80,6 @@ public function orgEvents($ctrl,$result){
             $weekDay = $row['weekDay'];
             $dayDate = $row['dayDate'];
             $month = $row['month'];
-            $year = $row['year'];
             
             $class="";
             if($approved==1){ 
@@ -103,11 +101,14 @@ public function orgEvents($ctrl,$result){
             <p class="oName">'.$oName.'</p>
             <p class="eDesc">'.$desc.'</p>';
 
-            $right ='<p class="weekDay">'.$weekDay.'</p>
-            <p class="dayDate">'.$dayDate.'</p>
-            <p class="month">'.$month.'</p>
-            <p class="year">'.$year.'</p>
-            <p>'.$sTime.' - '.$eTime.'</p>';
+            $right ='<div class="dateIcon">
+                        <p class="dDay">'.$dayDate.'</p>
+                        <p class="dTime">'.$sTime.'</p>
+                        <p class="dBreak">-</p>
+                        <p class="dTime">'.$eTime.'</p>
+                        <p class="dMonth">'.$month.'</span>
+                    </div>';
+
 
             $ctrl->calendar->calendarMarkup($left,$middle,$right);
 

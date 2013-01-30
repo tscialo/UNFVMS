@@ -9,9 +9,16 @@ class calendar {
 
     public function publicCalendarData($ctrl){
         $result;
-        if(!$result = $ctrl->db->mysqli->query("SELECT e.eID,e.eName,e.oID,e.o_cID,DATE_FORMAT(eDate,' %W %d %D %M %Y') as eDate,DATE_FORMAT(eDate,' %W ') AS weekDay,DATE_FORMAT(eDate,'%D') AS dayDate, DATE_FORMAT(eDate,'%M') AS month
+        if(!$result = $ctrl->db->mysqli->query("SELECT e.eID,e.eName,e.oID,e.o_cID,
+            DATE_FORMAT(eDate,' %W %d %D %M %Y') as eDate,
+            DATE_FORMAT(eDate,' %W ') AS weekDay,
+            DATE_FORMAT(eDate,'%e') AS dayDate,
+            DATE_FORMAT(eDate,'%b') AS month
             ,DATE_FORMAT(eDate,'%Y') as year,
-            eLocation,DATE_FORMAT(eStartTime, '%r') AS eStartTime,DATE_FORMAT(eEndTime,'%r') AS eEndTime,eDescription,volNeeded,ePhoto,e.created,o.oName AS oName, oc.o_cEmail as cEmail,e.totalVol
+            eLocation,
+            DATE_FORMAT(eStartTime, '%h %i %p') AS eStartTime,
+            DATE_FORMAT(eEndTime,'%h %i %p') AS eEndTime,
+            eDescription,volNeeded,ePhoto,e.created,o.oName AS oName, oc.o_cEmail as cEmail,e.totalVol
             FROM Event as e 
             INNER JOIN organization AS o ON e.oID=o.oID 
             INNER JOIN o_contact AS oc ON e.o_cID=oc.o_cID
@@ -61,20 +68,28 @@ class calendar {
                             '.$this->studentSessionCalendar($row).'
                         </div>
                         <div class="sevencol eventMid">
-                            <p class="eName">'.$eName.'</p>
+                            <p class="eName"><a href="event.php?sEventID='.$eID.'">'.$eName.'</a></p>
                             <span class="eLocation">'.$location.'</span>
                             <p class="oName">'.$oName.'</p>
                             <p class="eDesc">'.$desc.'</p>
                         </div>
                         <div class="twocol eventRight last">
-                            <p class="weekDay">'.$weekDay.'</p>
-                            <p class="dayDate">'.$dayDate.'</p>
-                            <p class="month">'.$month.'</p>
-                            <p class="year">'.$year.'</p>
-                            <p>'.$sTime.'</p><p> - </p><p> '.$eTime.'</p>
-                        </div>
+                            <div class="dateIcon">
+                                <p class="dDay">'.$dayDate.'</p>
+                                <p class="dTime">'.$sTime.'</p>
+                                <p class="dBreak">-</p>
+                                <p class="dTime">'.$eTime.'</p>
+                                <p class="dMonth">'.$month.'</span>
+                            </div>
+                       </div>
                     </div>
                 </div>';
+//                             <p class="weekDay">'.$weekDay.'</p>
+//                             <p class="dayDate">'.$dayDate.'</p>
+//                             <p class="month">'.$month.'</p>
+//                             <p class="year">'.$year.'</p>
+//                             <p>'.$sTime.'</p><p> - </p><p> '.$eTime.'</p>
+//  
 
         }//end while
 

@@ -131,9 +131,10 @@ class loginGate {
             $cID = $ctrl->db->mysqli->insert_id;
             $ctrl->db->mysqli->query("UPDATE organization SET mainContactID = '$cID' WHERE oID = '$id' "); 
             if($photo){
-                move_uploaded_file($_FILES['oPhoto']['tmp_name'],"photos/logos/".$id);
-                chmod("photos/logos/".$id,0644);
+                move_uploaded_file($_FILES['oPhoto']['tmp_name'],"photos/logos/".$id.".jpeg");
+                chmod("photos/logos/".$id.".jpeg",0644);
             }//end if
+            $ctrl->message="Thanks for signing up ".$fName.' '.$lName.', sign in to get started';
         }//end if
         else{
             echo 'YOUR PASSWORDS DID NOT MATCH';

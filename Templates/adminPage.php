@@ -12,7 +12,6 @@ class adminPage {
             $eID = $row['eID'];
             $oID = $row['oID'];
             $ocID = $row['o_cID'];
-            $date = $row['eDate'];
             $location = $row['eLocation'];
             $sTime = $row['eStartTime'];
             $eTime = $row['eEndTime'];
@@ -27,7 +26,6 @@ class adminPage {
             $weekDay = $row['weekDay'];
             $dayDate = $row['dayDate'];
             $month = $row['month'];
-            $year = $row['year'];
 
             $left = '<p>Approve</p>
                     <input type="checkbox" name="app[]" value="'.$eID.'">
@@ -39,11 +37,13 @@ class adminPage {
                     <p class="oName">'.$oName.'</p>
                     <p class="eDesc">'.$desc.'</p>';
 
-            $right ='<p class="weekDay">'.$weekDay.'</p>
-                    <p class="dayDate">'.$dayDate.'</p>
-                    <p class="month">'.$month.'</p>
-                    <p class="year">'.$year.'</p>
-                    <p>'.$sTime.' - '.$eTime.'</p>';
+            $right ='<div class="dateIcon">
+                        <p class="dDay">'.$dayDate.'</p>
+                        <p class="dTime">'.$sTime.'</p>
+                        <p class="dBreak">-</p>
+                        <p class="dTime">'.$eTime.'</p>
+                        <p class="dMonth">'.$month.'</span>
+                    </div>';
 
             $ctrl->calendar->calendarMarkup($left,$middle,$right);
 
@@ -72,7 +72,6 @@ class adminPage {
             $eID = $row['eID'];
             $oID = $row['oID'];
             $ocID = $row['o_cID'];
-            $date = $row['eDate'];
             $location = $row['eLocation'];
             $sTime = $row['eStartTime'];
             $eTime = $row['eEndTime'];
@@ -88,7 +87,6 @@ class adminPage {
             $weekDay = $row['weekDay'];
             $dayDate = $row['dayDate'];
             $month = $row['month'];
-            $year = $row['year'];
 
             $class="";
             if($approved==1){ 
@@ -111,11 +109,14 @@ class adminPage {
                     <p class="oName">'.$oName.'</p>
                     <p class="eDesc">'.$desc.'</p>';
 
-            $right ='<p class="weekDay">'.$weekDay.'</p>
-                    <p class="dayDate">'.$dayDate.'</p>
-                    <p class="month">'.$month.'</p>
-                    <p class="year">'.$year.'</p>
-                    <p>'.$sTime.' - '.$eTime.'</p>';
+            $right ='<div class="dateIcon">
+                        <p class="dDay">'.$dayDate.'</p>
+                        <p class="dTime">'.$sTime.'</p>
+                        <p class="dBreak">-</p>
+                        <p class="dTime">'.$eTime.'</p>
+                        <p class="dMonth">'.$month.'</span>
+                    </div>';
+
 
             $ctrl->calendar->calendarMarkup($left,$middle,$right);
 

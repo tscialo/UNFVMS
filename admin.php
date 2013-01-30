@@ -34,7 +34,7 @@ require_once('Templates/adminPage.php');
             <div class="onecol">
             </div>
             <div class="ninecol last">
-                <p class="heading bB">Events Awaiting Approval</p>';
+                <p class="heading bB">Events Awaiting Approval</p>
                 <?  $page->unApprovedEvents($ctrl,$unApprovedEvents);?>
                 <p class="heading bB">All Events</p>
                 <? $page->allEvents($ctrl,$allEvents);?>
