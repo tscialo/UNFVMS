@@ -8,6 +8,7 @@ class pageHeader{
                 <div class="sixcol">
                     <div id="logo"><a href="index.php"><img src="photos/UNF_Logo.gif"/></a></div>
                     <div id="motto"><a href="index.php"><img src="photos/volunteer_center_logo.gif"></a></div>
+                    <div>hello</div>
                 </div>
                 <div class="sixcol last">
 
