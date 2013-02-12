@@ -10,8 +10,8 @@ if(!isset($_SESSION['studentUser'])){
 
 
 require_once('control.php');
-require_once('Templates/page.php');
-require_once('Templates/studentPage.php');
+require_once('templates/page.php');
+require_once('templates/studentPage.php');
 
     //instantiate control
     $ctrl = new control;

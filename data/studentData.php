@@ -18,14 +18,21 @@ class studentData {
     public function getEvents($ctrl){
     $result;
     $sID = $_SESSION['studentUser'];
-    if(!$result = $ctrl->db->mysqli->query("SELECT e.eID,e.eName,e.oID,e.o_cID,DATE_FORMAT(eDate,' %W %d %D %M %Y') as eDate,DATE_FORMAT(eDate,' %W ') AS weekDay,DATE_FORMAT(eDate,'%D') AS dayDate, DATE_FORMAT(eDate,'%M') AS month
-        ,DATE_FORMAT(eDate,'%Y') as year,
-        eLocation,DATE_FORMAT(eStartTime, '%r') AS eStartTime,DATE_FORMAT(eEndTime,'%r') AS eEndTime,eDescription,volNeeded,ePhoto,e.created,o.oName AS oName, oc.o_cEmail as cEmail,se.seID,e.totalVol
+    if(!$result = $ctrl->db->mysqli->query("SELECT e.eID,e.eName,e.oID,e.o_cID,
+        DATE_FORMAT(eDate,' %W %d %D %M %Y') as eDate,
+        DATE_FORMAT(eDate,' %W ') AS weekDay,
+        DATE_FORMAT(eDate,'%e') AS dayDate,
+        DATE_FORMAT(eDate,'%b') AS month,
+        DATE_FORMAT(eDate,'%Y') as year,
+        eLocation,
+        DATE_FORMAT(eStartTime, '%h %i %p') AS eStartTime,
+        DATE_FORMAT(eEndTime,'%h %i %p') AS eEndTime,
+        eDescription,volNeeded,ePhoto,e.created,o.oName AS oName, oc.o_cEmail as cEmail,se.seID,e.totalVol
                                 FROM Event as e 
                                 INNER JOIN organization AS o ON e.oID=o.oID 
                                 INNER JOIN o_contact AS oc ON e.o_cID=oc.o_cID
                                 LEFT JOIN s_Events AS se ON se.sID='$sID' AND e.eID=se.eID 
-                                WHERE e.approved=1 ORDER BY e.eDate"))
+                                WHERE e.approved=1 ORDER BY e.eDate DESC"))
     {
         echo $ctrl->db->mysqli->error;
         return null;
@@ -38,13 +45,18 @@ class studentData {
     public function getSignedUpEvents($ctrl){
         $sID= $_SESSION['studentUser'];
         $result;
-        if(!$result=$ctrl->db->mysqli->query("SELECT se.eID,se.sID,e.eName,DATE_FORMAT(e.eDate,' %W ') AS weekDay,DATE_FORMAT(e.eDate,'%D') AS dayDate, DATE_FORMAT(e.eDate,'%M') AS month
-        ,DATE_FORMAT(e.eDate,'%Y') as year,DATE_FORMAT(e.eStartTime, '%r') AS eStartTime,DATE_FORMAT(e.eEndTime,'%r') AS eEndTime
-                                    FROM s_Events AS se
-                                    INNER JOIN Event As e ON e.eID=se.eID
-                                    INNER JOIN organization AS o ON o.oID=e.oID
-                                    WHERE se.sID='$sID'
-                                    ORDER BY e.eDate"))
+        if(!$result=$ctrl->db->mysqli->query("SELECT se.eID,se.sID,e.eName,
+            DATE_FORMAT(e.eDate,' %W ') AS weekDay,
+            DATE_FORMAT(e.eDate,'%D') AS dayDate,
+            DATE_FORMAT(e.eDate,'%M') AS month,
+            DATE_FORMAT(e.eDate,'%Y') as year,
+            DATE_FORMAT(e.eStartTime, '%r') AS eStartTime,
+            DATE_FORMAT(e.eEndTime,'%r') AS eEndTime
+            FROM s_Events AS se
+            INNER JOIN Event As e ON e.eID=se.eID
+            INNER JOIN organization AS o ON o.oID=e.oID
+            WHERE se.sID='$sID'
+            ORDER BY e.eDate"))
         {
             echo $ctrl->db->mysqli->error;
             return null;
@@ -55,7 +67,7 @@ class studentData {
 
     }//end getSignedUpEvents
 
-    public function eventAction($ctrl){
+    public function eventSignUpAction($ctrl){
         $eID = $_POST['eventID'];
         $s = $_POST['signedUp'];
         $sID = $_SESSION['studentUser'];
@@ -84,7 +96,22 @@ class studentData {
        $ctrl->db->mysqli->query("UPDATE student SET password='$newPassword' WHERE sID='$sID'"); 
     }//end updatePassword
 
+    public function submitComment($ctrl,$eID,$userID,$recipID,$parentID,$comment,$fName){
+        if(!$ctrl->db->mysqli->query("INSERT INTO comments VALUES('$eID','$userID','$recipID','null','$parentID','$comment',0,0,UNIX_TIMESTAMP(),0)")){
+            echo $ctrl->db->mysqli->error;
+        }//end if
+        else{
+            //$arr = json_encode(array('eID'=>$eID,'userID'=>$userID,'recipID'=>$recipID,'commentID'=>$ctrl->db->mysqli->insert_id,'parentID'=>$parentID,'text'=>$comment,'uVotes'=>0));
+            //echo $arr;
 
+            require_once('templates/comment.php');
+            $c = new comment($userID,$ctrl->db->mysqli->insert_id,$parentID,$comment,0,0,1,$fName,$eID,null);
+            $c->childCount = 0;
+            $c->printComment(0);
+
+        }//end else
+        
+    }//end submitComment
 
 
 }//end studentData

@@ -42,7 +42,7 @@ public $message;
         else {
         }//end else
 
-        require_once('Templates/calendar.php');
+        require_once('templates/calendar.php');
         $this->calendar = new calendar($this);
         
     }//end process

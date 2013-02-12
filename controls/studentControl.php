@@ -24,18 +24,38 @@ public $sData;
     private function processPostData($ctrl){
 
         if(isset($_POST['eventID'])){
-            $this->sData->eventAction($ctrl);
+            $this->sData->eventSignUpAction($ctrl);
         }
-        if(isset($_POST['changePassword'])){
+        elseif(isset($_POST['changePassword'])){
             $this->sData->changePassword($ctrl);
         }//end else if
+        elseif(isset($_POST['submitComment'])){
+            //check to see if there is a comment trying to be left
+            if($_POST['submitComment']!=null){
+                $comment = $ctrl->clean($_POST['submitComment']);
+            }
+            else{ return;}
+
+            $eID = $ctrl->clean($_GET['sEventID']);
+            $sID = $this->student->sID;
+
+            if(isset($_POST['recipID'])){
+                $recipID = $ctrl->clean($_POST['recipID']);
+            }//end if
+            else{
+                $recipID = 0;
+            }//end else
+
+            $parentID = isset($_POST['parentID']) ? $ctrl->clean($_POST['parentID']) : 0;
+
+            //insert the comment into the DB
+            $this->sData->submitComment($ctrl,$eID,$sID,$recipID,$parentID,$comment,$this->student->fName);
+
+        }//end if
 
     }//end processPostData
 
     private function processGetData($ctrl){
-        if(isset($_GET['sEventID'])){
-
-        }//end if
 
     }//end processGetData
 

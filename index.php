@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 session_start();
 
 require_once('control.php');
-require_once('Templates/page.php');
+require_once('templates/page.php');
 
     $ctrl = new control;
     $ctrl->process();

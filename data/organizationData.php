@@ -62,9 +62,24 @@ class organizationData {
         return $fullDate;
     }//end parseDate
 
+    private function getLatLong($address){
+        $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address=".$address;
+        $json_resp = file_get_contents($url);
+        $resp = json_decode($json_resp,true);
+        if($resp['status']='OK'){
+            return $resp;
+        }//end if
+        else {
+            return false;
+        }//end else
+
+    }//end getLanLong
+
     public function addEvent($ctrl,$oID){
         $eName = $ctrl->clean($_POST['eName']);
-        $eLocation = $ctrl->clean($_POST['location']);
+        $eStreetAddr = $ctrl->clean($_POST['streetAddr']);
+        $eCityAddr = $ctrl->clean($_POST['cityAddr']);
+        $eStateAddr = $ctrl->clean($_POST['stateAddr']);
         $date = $ctrl->clean($_POST['date']);
         $sTime = $ctrl->clean(trim($_POST['sTime']));
         $eTime = $ctrl->clean(trim($_POST['eTime']));
@@ -77,16 +92,23 @@ class organizationData {
 
         $sTime = $this->parseTime($sTime);
         $eTime = $this->parseTime($eTime);
+
+        $address = urlencode($eStreetAddr.', '.$eCityAddr.', '.$eStateAddr);
+        $resp = $this->getLatLong($address);
+        $lat = $resp['results'][0]['geometry']['location']['lat'];
+        echo '\n'.$lat;
+        $lon = $resp['results'][0]['geometry']['location']['lng'];
+        echo '\n'.$lon;
+
         if($sTime && $eTime){
             if($date){
-                if(!$ctrl->db->mysqli->query("INSERT INTO Event VALUES('null','$oID','$oCID','$eName','$date','$eLocation','$sTime','$eTime','$desc','$volNeeded',0,NOW(),0,0)")){
+                if(!$ctrl->db->mysqli->query("INSERT INTO Event VALUES('null','$oID','$oCID','$eName','$date','null','$eStreetAddr','$eCityAddr','$eStateAddr','$lon','$lat','$sTime','$eTime','$desc','$volNeeded',0,NOW(),0,0)")){
                     echo $ctrl->db->mysqli->error;
                 }//end if
                 else{
                     //do a header push for now until form is ajaxed
                     //done to prevent multiple submissions
                     header("Location: organization.php");
-
                 }
             }//end if
             else {
@@ -99,6 +121,8 @@ class organizationData {
 
 
     }//end addEvent
+
+
 
     public function getOrgEvents($ctrl){
     $result;

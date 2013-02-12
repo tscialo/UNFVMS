@@ -454,3 +454,106 @@ width:150px;
 #sEventImg {
 width:250px;
 }
+
+#googleMap {
+height:250px;
+width:250px;
+}
+
+/************************** COMMENTS START **************************/
+
+.cLeft {
+float:left;
+width:3%;
+}
+.cRight {
+float:left;
+width:96%;
+}
+.cRight div{
+margin-left:10px;
+}
+.commentReplyButton{
+clear:both;
+display:block;
+margin-bottom:10px;
+color:#336699;
+font-size:1.8em;
+font-family: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;
+}
+
+#commentsContainer{
+    margin-left:10%;
+    margin-right:10%;
+}
+.cWrap{
+padding:5px;
+}
+.cHeader{
+color:#336699;
+font-size:1.7em;
+font-family: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;
+padding-top:3px;
+}
+.cHeader a { color:#333333; }
+.cHeader { color:#333333; }
+.cVotes { color:#333333; }
+.cHHleft { 
+margin-left:3%;
+}
+.cNumVotes { color:#660066; }
+
+.discComment{
+font-size:1.4em;
+display:block;
+}
+#discComReply span {
+font-size:.8em!important;
+color:#333333;
+margin-left:10px;
+}
+.arrows{
+float:left;
+margin-left:3px;   
+}
+
+.cParent{
+margin-bottom:15px;
+border:2px solid #333333;
+border-bottom-right-radius: 9px;
+border-top-left-radius:9px;
+padding-bottom:5px;
+background-color:#ffffff;
+min-height: 18px;
+}
+
+.cChild{
+border:1px solid #333333;    
+border-bottom-right-radius: 9px;
+border-top-left-radius:9px;
+margin-left:25px;
+margin-top:5px;
+padding-bottom:5px;
+min-height: 18px;
+}
+
+.even{    
+background-color:#ffffff;
+}
+
+.odd{    
+background-color:#cccccc;
+}
+.view {
+margin-left:5px;
+cursor:pointer;
+}
+.replyButton{
+cursor:pointer;
+}
+.replyForm{
+padding-left:30px;
+}
+/************************** COMMENTS END **************************/
+
+

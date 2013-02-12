@@ -1,3 +1,86 @@
+
+var VMS = {
+    comment : {
+        eventID : undefined,
+        submitComment : function(event,that){
+            var form = $(that).parent();
+            VMS.comment.action = $(form).attr('action');
+            $(form).attr('action');
+            event.preventDefault();
+             $.ajax({
+                 url:$(form).attr('action'),
+                 type:"POST",
+                 data: $(form).serialize(),
+                 success : function(data){
+                     VMS.comment.addCommentToDom(data,form);
+                     $(form).remove();
+                 }//end success
+             });
+ 
+        },//end submitComment
+        bindCommentSubmit : function(){
+            $('.submitComment').live('click enter',function(event){
+                VMS.comment.submitComment(event,this);
+            });
+        }(),//end bindCommentSubmit
+        addCommentToDom : function(inc,form){
+            $(form).parent().after(inc);
+        },//end addCommentToDom
+        replyClick : function(){
+            $('.commentReplyButton').live('click',function(){
+                if($(this).next('.commentForm').length){
+                    $(this).next().remove();
+                }//end if
+                else{
+                    var comment = $(this).parent();
+                    var cID = $(comment).attr('cid');
+                    var uID = $(comment).attr('uid');
+                    var form = '<form class="commentForm" action="ajaxPortal.php?sEventID='+VMS.comment.eventID+'"><input type="hidden" name="recipID" value="'+uID+'" /><input type="hidden" name="parentID" value="'+cID+'"/><textarea name="submitComment"></textarea><input class="submitComment" type="submit" value="Reply"></form>';
+                    $(this).after(form);                
+                }//end else
+            });
+        }(),//end replyClick
+        toggleCommentView : function(){
+            $('.toggleCommentView').live('click',function(){
+                $(this).next().toggle();
+                $(this).next().next().toggle();
+            });
+        }()//end toggleCommentview
+
+    },//end comment
+
+    googleMap : {
+        lat: undefined,
+        lng: undefined,
+        title: undefined,
+        map : function(){
+            $(document).ready(function(){
+            if($('#googleMap').length){
+                var mapOptions = {
+                    center: new google.maps.LatLng(VMS.googleMap.lat,VMS.googleMap.lng),
+                    zoom:15,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                };//end mapOptions
+
+                var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(VMS.googleMap.lat,VMS.googleMap.lng),
+                    map: map,
+                    title: VMS.googleMap.title 
+                });
+
+            }//end if
+            })
+        }()//end map
+
+    }//end googleMap
+
+}//end VMS
+
+
+
+
 $(document).ready(function(){
 
 
